@@ -21,14 +21,14 @@
             <table id="日記一覧" cellpadding="5" width="800" border>
                 <tr id="見出し">
                     <th width="50"><input type="checkbox" id="全チェック"></th>
-                    <th width="150">日付</th>
+                    <th width="130">日付</th>
                     <th width="150">画像</th>
                     <th>日記</th>
                 </tr>
                 @foreach ($diaries as $diary)
                 <tr>
                     <td align="center"><input type="checkbox" name="削除チェック[]" value="{{ $diary->id }}"></td>
-                    <td>{{ $diary->upload_date }}</td>
+                    <td>{{ substr($diary->upload_date, 0, 4) }}年{{ ltrim(substr($diary->upload_date, 4, 2), '0') }}月{{ ltrim(substr($diary->upload_date, 6, 2), '0') }}日</td>
                     <td></td>
                     <td>{{ $diary->contents }}</td>
                 </tr>
