@@ -9,10 +9,10 @@
     <table cellpadding="5" width="800" border>
         <tr>
             <th width="100">日付</th>
-            <td><input type="date" id="日付" name="日付" value=""></td>
+            <td><input type="date" id="日付" name="日付" value="{{ $日付の初期値 }}"></td>
         </tr>
         <tr>
-            <th>画像</th>
+            <th>画像（jpg）</th>
             <td><input type="file" id="画像" name="画像"></td>
         </tr>
         <tr>

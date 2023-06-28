@@ -21,7 +21,11 @@ class RegistDiaryController extends Controller
     
     public function index(): View
     {
-        return view('regist_diary.index', []);
+        // 日付の初期値は本日の日付とする。
+        $日付の初期値 = date("Y-m-d");
+        return view('regist_diary.index', [
+            "日付の初期値" => $日付の初期値
+        ]);
     }
     
     public function 保存(Request $request)
