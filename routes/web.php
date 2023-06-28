@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\IchiranController;
+use App\Http\Controllers\DiaryListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +16,9 @@ use App\Http\Controllers\IchiranController;
 */
 
 // 一覧ページ
-Route::get('/', [IchiranController::class, 'index']);
+Route::get('/', [DiaryListController::class, 'index']);
+Route::get('/diary_list/表示', [DiaryListController::class, '表示']);
+
+// 新規投稿ページ
+Route::get('/regist_diary', [IchiranController::class, 'index']);
 Route::get('/ichiran/表示', [IchiranController::class, '表示']);

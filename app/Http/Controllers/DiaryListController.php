@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 use \App\Models\Diary;
 
-class IchiranController extends Controller
+class DiaryListController extends Controller
 {
     private $diary;
     
@@ -21,7 +21,7 @@ class IchiranController extends Controller
     public function index(): View
     {
         
-        return view('ichiran.index', []);
+        return view('diary_list.index', []);
     }
     
     public function 表示(Request $request)

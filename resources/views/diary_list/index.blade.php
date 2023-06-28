@@ -19,7 +19,7 @@
     
     
 </center>
-<script src="/js/ichiran/index.js?{{date("YmdHis")}}"></script>
+<script src="/js/diary_list/index.js?{{date("YmdHis")}}"></script>
 @endsection
 
 
