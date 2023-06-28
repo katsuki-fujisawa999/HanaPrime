@@ -12,11 +12,11 @@
 <center>
     <h1>日記一覧</h1>
     <form id="新規投稿form" action="/regist_diary/index" name="新規投稿form">
-        <button id="新規投稿">新規投稿</button>&nbsp;
+        <button id="新規投稿" onclick="return false;">新規投稿</button>&nbsp;
     </form>
     
     <form id="削除form" action="/diary_list/削除" name="削除form">
-        <button id="削除">　削除　</button>
+        <button id="削除" onclick="return false;">　削除　</button>
         <p>
             <table id="日記一覧" cellpadding="5" width="800" border>
                 <tr id="見出し">
