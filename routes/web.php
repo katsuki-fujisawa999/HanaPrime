@@ -23,4 +23,4 @@ Route::get('/diary_list/削除', [DiaryListController::class, '削除']);
 
 // 新規投稿ページ
 Route::get('/regist_diary/index', [RegistDiaryController::class, 'index']);
-Route::get('/regist_diary/保存', [RegistDiaryController::class, '保存']);
+Route::post('/regist_diary/保存', [RegistDiaryController::class, '保存']);
