@@ -4,6 +4,7 @@
 <script>
 </script>
 <center>
+    <form id="保存form" action="保存" name="保存form">
     <h1>新規投稿</h1>
     <table cellpadding="5" width="800" border>
         <tr>
@@ -21,6 +22,7 @@
     </table>
     <br>
     <button id="保存">保存</button>
+    </from>
 </center>
 <script src="/js/regist_diary/index.js?{{date("YmdHis")}}"></script>
 @endsection
