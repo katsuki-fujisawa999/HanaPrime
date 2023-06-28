@@ -5,7 +5,7 @@
 </script>
 <center>
     <h1>日記一覧</h1>
-    <form id="新規投稿form" action="regist_diary/index" name="新規投稿form">
+    <form id="新規投稿form" action="/regist_diary/index" name="新規投稿form">
         <button id="新規投稿">新規投稿</button>&nbsp;
     </from>
     <button id="削除">削除</button>
