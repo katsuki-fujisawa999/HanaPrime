@@ -36,7 +36,7 @@
             </table>
         </p>
     </form>
-    {{ $diaries->links('pagination::tailwind') }}
+    {{ $diaries->links('pagination::semantic-ui') }}
     
 </center>
 <script src="/js/diary_list/index.js?{{date("YmdHis")}}"></script>
