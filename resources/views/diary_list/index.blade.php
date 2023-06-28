@@ -4,8 +4,11 @@
 <script>
 </script>
 <center>
-    <h2>日記一覧</h2>
-    <button id="作成">作成</button>&nbsp;<button id="削除">削除</button>
+    <h1>日記一覧</h1>
+    <form id="新規投稿form" action="regist_diary/index" name="新規投稿form">
+        <button id="新規投稿">新規投稿</button>&nbsp;
+    </from>
+    <button id="削除">削除</button>
     <hr>
     <table cellpadding="5" width="800" border>
         <tr>
