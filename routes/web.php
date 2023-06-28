@@ -19,7 +19,6 @@ use App\Http\Controllers\RegistDiaryController;
 // 一覧ページ
 Route::get('/', [DiaryListController::class, 'index']);
 Route::get('/diary_list/index', [DiaryListController::class, 'index'])->name('dairy_list.index');
-Route::get('/diary_list/表示', [DiaryListController::class, '表示']);
 
 // 新規投稿ページ
 Route::get('/regist_diary/index', [RegistDiaryController::class, 'index']);

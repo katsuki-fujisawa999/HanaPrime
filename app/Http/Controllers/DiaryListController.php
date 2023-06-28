@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 use \App\Models\Diary;
 
@@ -20,30 +21,36 @@ class DiaryListController extends Controller
     
     public function index(): View
     {
-        
-        return view('diary_list.index', []);
+        return view('diary_list.index', [
+            'diaries' => DB::table('diaries')->paginate(5)
+        ]);
     }
     
     public function 表示(Request $request)
-    {   
-        $日記一覧 = $this->diary->selectAll();
-        
-        $grid_data = array();
-        foreach ($日記一覧 as $i => $obj) {
-            // データ行
-            $grid_row_data = array();
-            $grid_row_data[] = $obj->path;
-            $grid_row_data[] = $obj->date;
-            $grid_row_data[] = $obj->contents;
+    {  
+        try {
+            $日記一覧 = $this->diary::paginate(10);
+
+            $表data = array();
+            foreach ($日記一覧 as $i => $obj) {
+                // データ行
+                $行data = array();
+                $行data[] = $obj->upload_date;
+                $行data[] = $obj->image_path;
+                $行data[] = $obj->contents;
+
+                $表data[] = array('id' => $obj->id, 'data' => $行data);
+            }
             
-            $grid_data[] = array('id' => $obj->id, 'data' => $grid_row_data);
+            $ret['message'] = '';
+            $ret['data'] = $表data;
+            return json_encode($ret);
+        } catch (Exception $ex) {
+            Log::error($ex->getMessage() . "\n" . $ex->getTraceAsString());
+            $ret['message'] = $ex->getMessage() . "\n" . $ex->getTraceAsString();
+            $ret['data'] = array();
         }
-        
-        $data = array('rows' => $grid_data);
-
-        $ret['data'] = $data;
-        return json_encode($ret);
+            
     }
-
-    
+  
 }
