@@ -28,6 +28,16 @@ class RegistDiaryController extends Controller
     {
         try {
             DB::beginTransaction();
+            
+            $tmp日付 = $request->input('日付');
+            $日記 = $request->input('日記');
+            
+            $tmp = explode('-', $tmp日付);
+            $日付 = $tmp[0] . $tmp[1] . $tmp[2];
+            
+            $image_path = '';
+            $contents = $日記;
+            $this->diary->挿入($日付, $image_path, $contents);
 
             DB::commit();
 
