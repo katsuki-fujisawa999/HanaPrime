@@ -26,29 +26,23 @@ class DiaryListController extends Controller
         ]);
     }
     
-    public function 表示(Request $request)
+    public function 削除(Request $request)
     {  
         try {
-            $日記一覧 = $this->diary::paginate(10);
-
-            $表data = array();
-            foreach ($日記一覧 as $i => $obj) {
-                // データ行
-                $行data = array();
-                $行data[] = $obj->upload_date;
-                $行data[] = $obj->image_path;
-                $行data[] = $obj->contents;
-
-                $表data[] = array('id' => $obj->id, 'data' => $行data);
+            DB::beginTransaction();
+            $削除チェック = $request->input('削除チェック');
+            
+            foreach ($削除チェック as $i => $id) {
+                $this->diary->削除($id);
             }
             
-            $ret['message'] = '';
-            $ret['data'] = $表data;
-            return json_encode($ret);
+            DB::commit();
+
+            return redirect()->route('dairy_list.index');
         } catch (Exception $ex) {
+            DB::rollBack();
             Log::error($ex->getMessage() . "\n" . $ex->getTraceAsString());
-            $ret['message'] = $ex->getMessage() . "\n" . $ex->getTraceAsString();
-            $ret['data'] = array();
+            return redirect()->route('dairy_list.index');
         }
             
     }
