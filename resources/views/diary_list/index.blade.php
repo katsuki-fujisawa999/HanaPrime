@@ -15,7 +15,6 @@
         <button id="新規投稿">新規投稿</button>&nbsp;
     </form>
     <button id="削除">削除</button>
-    <hr>
     <form id="削除form" action="/diary_list/削除" name="削除form">
     <p>
     <table id="日記一覧" cellpadding="5" width="800" border>
@@ -36,7 +35,7 @@
     </table>
     </p>
     </form>
-    {{ $diaries->links('pagination::semantic-ui') }}
+    {{ $diaries->links('pagination::tailwind') }}
     
 </center>
 <script src="/js/diary_list/index.js?{{date("YmdHis")}}"></script>
