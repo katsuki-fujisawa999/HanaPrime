@@ -9,7 +9,21 @@ $(function(){
         削除();
     });
     
-    
+    // 全チェック
+    $("#全チェック").on( "click", function() {
+        if ($("#全チェック").prop("checked")){
+            // 画面に表示中のチェックボックスをすべてチェックする。
+            $('input[name="削除チェック[]"]').each(function(index, element) {
+                $(element).prop("checked",true);
+            });
+        } else {
+            // 画面に表示中のチェックボックスのチェックを外す。
+            $('input[name="削除チェック[]"]').each(function(index, element) {
+                $(element).prop("checked",false);
+            });
+        }
+            
+    });
 });
 
 function 新規投稿(){
