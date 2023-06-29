@@ -1,0 +1,29 @@
+動作方法
+以下の手順にしたがって、
+ローカルのMySQLデータベースにデータベース、ユーザー、テーブルを作成してください。
+
+データベースを作成します。
+create database diary;
+
+ユーザーを作成します。
+create user 'diary'@'localhost' identified by 'diary';
+GRANT all ON diary.* TO 'diary'@'localhost';
+
+テーブルを作成します。
+CREATE TABLE diaries (
+     id MEDIUMINT NOT NULL AUTO_INCREMENT,
+     upload_date CHAR(8) NOT NULL DEFAULT  '',
+     image_path VARCHAR(256) NOT NULL DEFAULT  '',
+     contents VARCHAR(256) NOT NULL DEFAULT  '',
+     PRIMARY KEY (id)
+);
+
+必要におうじて.envファイルの以下の部分を変更してください。
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=diary
+DB_USERNAME=diary
+DB_PASSWORD=diary
+
