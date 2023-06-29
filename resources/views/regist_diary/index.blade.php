@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <th>画像（jpg）</th>
-            <td><img src="{{ $画像 }}">&nbsp;<input type="file" id="画像" name="画像"></td>
+            <td><input type="file" id="画像" name="画像">&nbsp;<img id="img画像" src="{{ $画像 }}"></td>
         </tr>
         <tr>
             <th>日記（256文字以内）</th>
