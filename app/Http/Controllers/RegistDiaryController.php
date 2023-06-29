@@ -61,11 +61,6 @@ class RegistDiaryController extends Controller
             $新ファイル名 = $ファイル名部分 . '_' . date("YmdHis") . '.' . $拡張子;
             $request->画像->storeAs($this::FILE_DIR, $新ファイル名);
 
-            // 保存したCSVファイルを取得する。
-            // $ファイルパス = $this::FILE_DIR . '/' . $新ファイル名;
-            
-            
-            
             $image_path = $新ファイル名;
             $contents = $日記;
             $this->diary->挿入($日付, $image_path, $contents);

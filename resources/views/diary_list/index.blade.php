@@ -29,7 +29,7 @@
                 <tr>
                     <td align="center"><input type="checkbox" name="削除チェック[]" value="{{ $diary->id }}"></td>
                     <td>{{ substr($diary->upload_date, 0, 4) }}年{{ ltrim(substr($diary->upload_date, 4, 2), '0') }}月{{ ltrim(substr($diary->upload_date, 6, 2), '0') }}日</td>
-                    <td></td>
+                    <td><img src="/diary_list/getImage/{{ $diary->image_path }}" height="50"></td>
                     <td>{{ $diary->contents }}</td>
                 </tr>
                 @endforeach
