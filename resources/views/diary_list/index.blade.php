@@ -24,6 +24,7 @@
                     <th width="130">日付</th>
                     <th width="150">画像</th>
                     <th>日記</th>
+                    <th width="70">編集</th>
                 </tr>
                 @foreach ($diaries as $diary)
                 <tr>
@@ -31,11 +32,15 @@
                     <td>{{ substr($diary->upload_date, 0, 4) }}年{{ ltrim(substr($diary->upload_date, 4, 2), '0') }}月{{ ltrim(substr($diary->upload_date, 6, 2), '0') }}日</td>
                     <td><img src="/diary_list/getImage/{{ $diary->image_path }}" height="50"></td>
                     <td>{{ $diary->contents }}</td>
+                    <td><button id="編集" value="{{ $diary->id }}" onclick="return false;">　編集　</button></td>
                 </tr>
                 @endforeach
             </table>
         </p>
     </form>
+    
+    <form id="編集form" action="/regist_diary/index/" name="編集form"></form>
+    
     {{ $diaries->links('pagination::semantic-ui') }}
     
 </center>

@@ -63,8 +63,6 @@ class DiaryListController extends Controller
             DB::rollBack();
             Log::error($ex->getMessage() . "\n" . $ex->getTraceAsString());
             return redirect()->route('dairy_list.index');
-        }
-            
+        } 
     }
-  
 }

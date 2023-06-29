@@ -22,6 +22,6 @@ Route::get('/diary_list/index', [DiaryListController::class, 'index'])->name('da
 Route::get('/diary_list/getImage/{ファイル名?}', [DiaryListController::class, 'getImage']);
 Route::get('/diary_list/削除', [DiaryListController::class, '削除']);
 
-// 新規投稿ページ
-Route::get('/regist_diary/index', [RegistDiaryController::class, 'index']);
+// 新規投稿ページ/編集ページ
+Route::get('/regist_diary/index/{id?}', [RegistDiaryController::class, 'index']);
 Route::post('/regist_diary/保存', [RegistDiaryController::class, '保存']);
